@@ -23,6 +23,7 @@ export default async bot => {
       register: require('hapi-auth-bearer-token')
     });
     server.auth.strategy('bolt_remote_simple', 'bearer-access-token', {
+      accessTokenName: auth.key,
       validateFunc(token, callback) {
         return callback(null, token === auth.token, { token });
       }

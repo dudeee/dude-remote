@@ -13,7 +13,31 @@ npm install --save bolt-remote
 
 ## Setup
 
-Nothing! Bolt knows the plugins by their package name prefix. It's loading all `bolt-*` modules as plugin and pass them a Bolt instance. They can modify the bot or do anything else with the instance.
+Bolt knows the plugins by their package name prefix. It's loading all `bolt-*` modules as plugin and pass them a Bolt instance. They can modify the bot or do anything else with the instance.
+
+This plugin only needs some configuration in your Bolt `config.js` file. Make sure you have the following config structure in your bot config:
+
+```js
+export default {
+  // some other config
+  // .
+  // .
+  remote: {
+    server: {
+      host: '127.0.0.1',
+      port: '8585'
+    },
+    auth: {
+      key: 'access_token',
+      token: 'DmO6HEvdga5OEva8CxEAZs30C5j7DPhN',
+      useDefault: true
+    }
+  }
+  // maybe some more other config here too
+  // .
+  // .
+}
+```
 
 
 ## Usage
