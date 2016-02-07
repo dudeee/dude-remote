@@ -39,6 +39,13 @@ export default {
 }
 ```
 
+* **server**: The config object passed to Hapi `connection` method which can contain server, port and other options.
+
+* **auth**: Auth configuration which used to implement a simple token based auth with following props:
+  * **key** (string): Query string key for auth token string.
+  * **token** (string): Our uniques and safe token to passed as value of `key` param in query string.
+  * **useDefault** (boolean): Use this auth as default auth for all our routes that we will define.
+
 
 ## Usage
 
