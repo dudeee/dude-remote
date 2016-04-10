@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import express from 'express';
+import bodyParser from 'body-parser';
 import { defaultsDeep } from 'lodash';
 
 
@@ -18,6 +19,12 @@ export default async bot => {
   // express application
   const app = express();
   const config = defaultsDeep(bot.config.remote, DEFAULT_CONFIG);
+
+  // parse application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: false }));
+
+  // parse application/json
+  app.use(bodyParser.json());
 
   // authorize user
   app.use((req, res, next) => {
