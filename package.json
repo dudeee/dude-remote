@@ -1,6 +1,6 @@
 {
   "name": "bolt-remote",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Remote plugin for bolt slack bot",
   "main": "build/index.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "grunt-eslint": "^18.0.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.7.4",
     "express": "^4.13.4",
     "lodash": "^4.9.0"
   }
