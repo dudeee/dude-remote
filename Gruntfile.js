@@ -7,11 +7,6 @@ module.exports = function (grunt) { // eslint-disable-line
           cwd: 'src',
           src: '**/*.js',
           dest: 'build/'
-        }, {
-          expand: true,
-          cwd: 'server',
-          src: '**/*.js',
-          dest: 'build/server/'
         }]
       }
     },
