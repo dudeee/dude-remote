@@ -1,41 +1,33 @@
-import Hapi from 'hapi';
-import { promisify } from 'bluebird';
+import express from 'express';
+import { defaultsDeep } from 'lodash';
 
+
+const DEFAULT_CONFIG = {
+  server: {
+    hostname: '127.0.0.1',
+    port: 3000
+  },
+  auth: {
+    key: 'token',
+    value: '123'
+  }
+};
 
 export default async bot => {
-  try {
-    // Get remote config file from bolt config
-    const { remote: config } = bot.config;
+  // express application
+  const app = express();
+  const config = defaultsDeep(bot.config.remote, DEFAULT_CONFIG);
 
-    // Get server config from remote object
-    const { server, auth } = config;
-
-    const remote = new Hapi.Server();
-
-    const register = promisify(remote.register.bind(remote));
-
-    remote.connection(server);
-
-    bot.remote = remote; // eslint-disable-line
-
-    // Register auth plugin, define and use it if it's default
-    await register({
-      register: require('hapi-auth-bearer-token')
-    });
-    server.auth.strategy('bolt_remote_simple', 'bearer-access-token', {
-      accessTokenName: auth.key,
-      validateFunc(token, callback) {
-        return callback(null, token === auth.token, { token });
-      }
-    });
-    if (auth.useDefault) {
-      remote.auth.default('bolt_remote_simple');
+  // authorize user
+  app.use((req, res, next) => {
+    const { key, value } = config.auth;
+    if (req.query[key] !== value) {
+      return res.send(403);
     }
+    return next();
+  });
 
-    bot.remote.start(() => (
-      bot.log.verbose(`bolt remote server started at ${server.host}:${server.port}`)
-    ));
-  } catch (e) {
-    bot.log.error(`Error registering remote plugin: ${e}`);
-  }
+  app.listen(config.server.port, config.server.hostname);
+
+  bot.remote = app; // eslint-disable-line
 };

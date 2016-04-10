@@ -1,6 +1,6 @@
 # bolt-remote
 
-`bolt-remote` is a remote http server plugin for [Bolt](https://github.com/slack-bolt/bolt) slack bot based on [Hapi](http://hapijs.com/) web framework. You can use this plugin to access your bots remotely with http requests.
+`bolt-remote` is a remote http server plugin for [Bolt](https://github.com/slack-bolt/bolt) slack bot based on [Express](http://expressjs.com/) web framework. You can use this plugin to make awesome plugins and access your bots remotely with http requests.
 
 
 ## Installation
@@ -24,13 +24,12 @@ export default {
   // .
   remote: {
     server: {
-      host: '127.0.0.1',
-      port: '8585'
+      hostname: '127.0.0.1',
+      port: 3000
     },
     auth: {
-      key: 'access_token',
-      token: 'DmO6HEvdga5OEva8CxEAZs30C5j7DPhN',
-      useDefault: true
+      key: 'token',
+      value: 'DmO6HEvdga5OEva8CxEAZs30C5j7DPhN'
     }
   }
   // maybe some more other config here too
@@ -39,19 +38,18 @@ export default {
 }
 ```
 
-* **server**: The config object passed to Hapi `connection` method which can contain server, port and other options.
+* **server**: The config object has 2 keys, hostname and the port. The default value is `127.0.0.7` and `3000`.
 
-* **auth**: Auth configuration which used to implement a simple token based auth with following props:
+* **auth**: Auth configuration which used to implement a simple query string token based auth with following props:
   * **key** (string): Query string key for auth token string.
-  * **token** (string): Our uniques and safe token to passed as value of `key` param in query string.
-  * **useDefault** (boolean): Use this auth as default auth for all our routes that we will define.
+  * **value** (string): Our uniques and safe token to passed as value of `key` param in query string.
 
 
 ## Usage
 
-This plugin adds a `remote` property to your bolt instance. This remote property is a Hapi server instance which can be used to define routes and etc.
+This plugin adds a `remote` property to your bolt instance. This remote property is a Express server instance which can be used to define routes, middlewares and etc.
 
-Read more about [Hapi](http://hapijs.com/tutorials) | [Routing](http://hapijs.com/tutorials/routing).
+Read more about [Express](http://expressjs.com/).
 
 
 ## Contribution
