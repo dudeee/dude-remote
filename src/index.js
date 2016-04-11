@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
 import { defaultsDeep } from 'lodash';
@@ -30,7 +29,7 @@ export default async bot => {
   app.use((req, res, next) => {
     const { key, value } = config.auth;
     if (req.query[key] !== value) {
-      return res.send(403);
+      return res.sendStatus(403);
     }
     return next();
   });

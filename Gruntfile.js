@@ -18,7 +18,7 @@ module.exports = function (grunt) { // eslint-disable-line
     },
     watch: {
       scripts: {
-        files: ['src/**/*.js', 'server/**/*.js'],
+        files: ['src/**/*.js'],
         tasks: ['eslint', 'babel']
       }
     }
