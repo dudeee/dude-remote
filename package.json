@@ -1,6 +1,6 @@
 {
   "name": "bolt-remote",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Remote plugin for bolt slack bot",
   "main": "build/index.js",
   "scripts": {
@@ -23,6 +23,13 @@
   ],
   "author": "Mohamad Jahani <m4m4lj@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slack-bolt/bolt-remote"
+  },
+  "bugs": {
+    "url": "https://github.com/slack-bolt/bolt-remote/issues"
+  },
   "devDependencies": {
     "babel": "6.5.2",
     "babel-eslint": "6.0.2",
