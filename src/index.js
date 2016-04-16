@@ -14,9 +14,9 @@ const DEFAULT_CONFIG = {
   }
 };
 
-export default async bot => {
+export default bot => {
   // express application
-  const app = express();
+  const app = bot.remote = express(); // eslint-disable-line
   const config = defaultsDeep(bot.config.remote, DEFAULT_CONFIG);
 
   // parse application/x-www-form-urlencoded
@@ -36,5 +36,5 @@ export default async bot => {
 
   app.listen(config.server.port, config.server.hostname);
 
-  bot.remote = app; // eslint-disable-line
+  return bot;
 };
