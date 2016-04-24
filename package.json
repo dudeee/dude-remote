@@ -1,6 +1,6 @@
 {
   "name": "bolt-remote",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "Remote plugin for bolt slack bot",
   "main": "build/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run build && npm test"
+      "pre-commit": "npm test"
     }
   },
   "keywords": [
