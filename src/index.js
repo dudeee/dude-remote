@@ -37,8 +37,10 @@ export default bot => {
     const { key, value } = config.auth;
     const token = req.query[key] || req.cookies[key];
     if (token !== value) {
+      bot.log.silly('[remote]', 'unauthorized request', key, token);
       return res.sendStatus(403);
     }
+    bot.log.silly('[remote]', 'authorized request', key, token);
     res.cookie(key, value);
     return next();
   });

@@ -1,6 +1,6 @@
 {
   "name": "bolt-remote",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "Remote plugin for bolt slack bot",
   "main": "build/index.js",
   "scripts": {
