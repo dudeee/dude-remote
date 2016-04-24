@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import { defaultsDeep } from 'lodash';
 
 
@@ -10,8 +11,9 @@ const DEFAULT_CONFIG = {
   },
   auth: {
     key: 'token',
-    value: '123'
-  }
+    value: '123',
+  },
+  cookiesMaxAge: 3600
 };
 
 export default bot => {
@@ -25,12 +27,19 @@ export default bot => {
   // parse application/json
   app.use(bodyParser.json());
 
+  // cookieParser with signed cookie (use auth token value as secret)
+  app.use(cookieParser(config.auth.value, {
+    maxAge: config.cookiesMaxAge
+  }));
+
   // authorize user
   app.use((req, res, next) => {
     const { key, value } = config.auth;
-    if (req.query[key] !== value) {
+    const token = req.query[key] || req.cookies[key];
+    if (token !== value) {
       return res.sendStatus(403);
     }
+    res.cookie(key, value);
     return next();
   });
 
