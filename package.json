@@ -1,7 +1,7 @@
 {
-  "name": "bolt-remote",
-  "version": "0.2.13",
-  "description": "Remote plugin for bolt slack bot",
+  "name": "dude-remote",
+  "version": "0.2.14",
+  "description": "Remote plugin for dude",
   "main": "build/index.js",
   "scripts": {
     "build": "grunt",
