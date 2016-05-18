@@ -7,13 +7,13 @@ import { defaultsDeep } from 'lodash';
 const DEFAULT_CONFIG = {
   server: {
     hostname: '127.0.0.1',
-    port: 3000
+    port: 3000,
   },
   auth: {
     key: 'token',
     value: '123',
   },
-  cookiesMaxAge: 3600
+  cookiesMaxAge: 3600,
 };
 
 export default bot => {
@@ -29,7 +29,7 @@ export default bot => {
 
   // cookieParser with signed cookie (use auth token value as secret)
   app.use(cookieParser(config.auth.value, {
-    maxAge: config.cookiesMaxAge
+    maxAge: config.cookiesMaxAge,
   }));
 
   // authorize user

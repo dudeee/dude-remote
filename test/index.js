@@ -10,21 +10,21 @@ describe('bolt-remote', () => {
     remote: {
       server: {
         hostname: '127.0.0.1',
-        port: 3000
+        port: 3000,
       },
       auth: {
         key: 'token',
-        value: '123'
-      }
-    }
+        value: '123',
+      },
+    },
   };
   before(() => {
     bot = {
       config,
       log: {
         debug: () => {},
-        silly: () => {}
-      }
+        silly: () => {},
+      },
     };
     bot = remote(bot);
     bot.remote.get('/test_success', (req, res) => {
