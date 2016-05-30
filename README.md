@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dudeee/dude-remote.svg?branch=master)](https://travis-ci.org/dudeee/dude-remote)
+[![npm version](https://badge.fury.io/js/dude-remote.svg)](https://badge.fury.io/js/dude-remote)
 # dude-remote
 
 `dude-remote` is a remote http server plugin for [dude](https://github.com/dudeee/dude) slack bot based on [Express](http://expressjs.com/) web framework. You can use this plugin to make awesome plugins and access your bots remotely with http requests.
