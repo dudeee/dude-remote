@@ -21,10 +21,6 @@ describe('dude-remote', () => {
   before(() => {
     bot = {
       config,
-      log: {
-        debug() {},
-        silly() {},
-      },
     };
     bot = remote(bot);
     bot.remote.get('/test_success', (req, res) => {
