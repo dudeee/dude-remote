@@ -1,6 +1,6 @@
 {
   "name": "dude-remote",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "Remote plugin for dude",
   "main": "build/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     }
   },
   "keywords": [
-    "bolt",
+    "dude",
     "bot",
     "slack",
     "slack-bot",
@@ -28,10 +28,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/slack-bolt/bolt-remote"
+    "url": "https://github.com/dudeee/dude-remote"
   },
   "bugs": {
-    "url": "https://github.com/slack-bolt/bolt-remote/issues"
+    "url": "https://github.com/dudeee/dude-remote/issues"
   },
   "devDependencies": {
     "babel": "6.5.2",

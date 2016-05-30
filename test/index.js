@@ -4,7 +4,7 @@ import remote from '../build';
 
 const LONG_TIMEOUT = 5000;
 
-describe('bolt-remote', () => {
+describe('dude-remote', () => {
   let bot;
   const config = {
     remote: {

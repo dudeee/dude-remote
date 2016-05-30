@@ -1,21 +1,21 @@
-# bolt-remote
+# dude-remote
 
-`bolt-remote` is a remote http server plugin for [Bolt](https://github.com/slack-bolt/bolt) slack bot based on [Express](http://expressjs.com/) web framework. You can use this plugin to make awesome plugins and access your bots remotely with http requests.
+`dude-remote` is a remote http server plugin for [dude](https://github.com/dudeee/dude) slack bot based on [Express](http://expressjs.com/) web framework. You can use this plugin to make awesome plugins and access your bots remotely with http requests.
 
 
 ## Installation
 
-First install Bolt and make it work. Then use `npm` and install it:
+First install dude and make it work. Then use `npm` and install it:
 
 ```bash
-npm install --save bolt-remote
+npm install --save dude-remote
 ```
 
 ## Setup
 
-Bolt knows the plugins by their package name prefix. It's loading all `bolt-*` modules as plugin and pass them a Bolt instance. They can modify the bot or do anything else with the instance.
+Dude knows the plugins by their package name prefix. It's loading all `dude-*` modules as plugin and pass them a dude instance. They can modify the bot or do anything else with the instance.
 
-This plugin only needs some configuration in your Bolt `config.js` file. Make sure you have the following config structure in your bot config:
+This plugin only needs some configuration in your dude `config.js` file. Make sure you have the following config structure in your bot config:
 
 ```js
 export default {
@@ -47,7 +47,7 @@ export default {
 
 ## Usage
 
-This plugin adds a `remote` property to your bolt instance. This remote property is a Express server instance which can be used to define routes, middlewares and etc.
+This plugin adds a `remote` property to your dude instance. This remote property is a Express server instance which can be used to define routes, middlewares and etc.
 
 Read more about [Express](http://expressjs.com/).
 
