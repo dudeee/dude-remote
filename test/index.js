@@ -22,8 +22,8 @@ describe('dude-remote', () => {
     bot = {
       config,
       log: {
-        debug: () => {},
-        silly: () => {},
+        debug() {},
+        silly() {},
       },
     };
     bot = remote(bot);
