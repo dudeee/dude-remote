@@ -1,6 +1,6 @@
 {
   "name": "dude-remote",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "description": "Remote plugin for dude",
   "main": "build/index.js",
   "scripts": {
